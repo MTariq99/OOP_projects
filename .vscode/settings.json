@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    "*.tcc": "cpp",
+    "unordered_map": "cpp",
+    "istream": "cpp",
+    "numeric": "cpp",
+    "ostream": "cpp",
+    "cstdlib": "cpp",
+    "algorithm": "cpp",
+    "functional": "cpp",
+    "daniyal": "cpp",
+    "iostream": "cpp",
+    "sstream": "cpp",
+    "string": "cpp"
+  }
+}
