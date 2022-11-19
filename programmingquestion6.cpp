@@ -1,3 +1,5 @@
+// QUESTION NUMBER 6 PROGRAMMING EXERCISE OF CHAPTER 13
+
 #include <iostream>
 using namespace std;
 #define SIZE 2
