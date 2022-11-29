@@ -227,7 +227,7 @@ void calenderType::printCalender()
             k = 2;
             if (i < 2)
             {
-                cout << "   ";
+                cout << "    ";
             }
         }
         else if (day == "tuesday")

@@ -1,6 +1,7 @@
 // QUESTION NUMBER 6 PROGRAMMING EXERCISE OF CHAPTER 13
 
 #include <iostream>
+#include <string>
 using namespace std;
 #define SIZE 2
 
@@ -191,13 +192,14 @@ void dateType::printDate()
 class addressBookType : public addressType, public dateType
 {
     addressType addType, addArr[SIZE];
+    personType pt[2];
     dateType dType, birthDay[SIZE];
 
 public:
     void setCompleteAddress();
     void dispCompleteAddress();
     bool srchPerson(addressBookType addArr[], string);
-    // void sortPerson(addressBookType sortLName[]);
+    void sortPerson(addressBookType sortLName[]);
     bool personBirthday(addressBookType birthday[], int);
 };
 
@@ -228,23 +230,23 @@ bool addressBookType::srchPerson(addressBookType addArr[], string lName)
 
 // void addressBookType::sortPerson(addressBookType sortLName[])
 // {
-//     string temp;
-//     for (int i = 0; i < SIZE; i++)
+//     string temp[20];
+//     for (int i = 0; i < SIZE - 1; i++)
 //     {
-//         for (int j = i + 1; j < SIZE; j++)
+//         for (int j = 0 + 1; j < SIZE - i - 1; j++)
 //         {
-//             if (addArr[i] < addArr[j])
+//             if (pt[j] < pt[i])
 //             {
-//                 temp = addArr[j];
-//                 addArr[i] = addArr[j];
-//                 addArr[i] = temp;
+//                 temp[10] = pt[i];
+//                 pt[i] = pt[j];
+//                 pt[i] = temp[10];
 //             }
 //         }
 //     }
-//     for (int i = 0; i < SIZE; i++)
-//     {
-//         addArr[i];
-//     }
+//     // for (int i = 0; i < SIZE; i++)
+//     // {
+//     //     addArr[i];
+//     // }
 // }
 
 bool addressBookType::personBirthday(addressBookType birthday[], int bMonth)

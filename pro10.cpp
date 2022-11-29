@@ -1,3 +1,5 @@
+// QUESTION NUMBER 10 PROGRAMMING EXERCISE OF CHAPTER 13
+
 #include <iostream>
 using namespace std;
 
@@ -6,7 +8,8 @@ class dateType
     int dDay, dMonth, dYear;
 
 public:
-    dateType() : dDay(0), dMonth(0), dYear(0) {}
+    dateType() {}
+    dateType(unsigned int d, unsigned int m, unsigned int y) : dDay(d), dMonth(m), dYear(y) {}
     void setDate();
     void setDay();
     void setMonth();
@@ -14,15 +17,9 @@ public:
     int getDay() const;
     int getMonth() const;
     int getyear() const;
-    bool isLeapYear();
-    int daysInMonth();
-    int numberOfDaysPassed();
-    int numberOfDaysRemaining();
-    void printDate() const;
 };
 void dateType::setDate()
 {
-
     cout << "enter the date : ";
     cin >> dDay;
     if (dDay > 0 && dDay < 31)
@@ -44,16 +41,6 @@ void dateType::setDate()
         cout << "sorry!\ninvalid date\n";
     }
 }
-void dateType::setDay()
-{
-    cout << "enter the date : ";
-    cin >> dDay;
-}
-void dateType::setMonth()
-{
-    cout << "enter days in  Month : ";
-    cin >> dMonth;
-}
 void dateType::setYear()
 {
     cout << "enter the Year : ";
@@ -71,373 +58,377 @@ int dateType::getyear() const
 {
     return dYear;
 }
+// int dateType::number_of_day()
+// {
+//     switch (number)
+//     {
+//     case 1:
+//         cout << "number of day in month is 31\n";
+//         break;
+//     case 2:
+//         if (dYear % 4 == 0)
+//         {
+//             cout << "the number of days is 29 \n";
+//         }
+//         else
+//         {
+//             cout << "the number of days is 28 \n";
+//         }
+//         break;
+//     case 3:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     case 4:
+//         cout << "the number of days is 30 \n";
+//         break;
+//     case 5:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     case 6:
+//         cout << "the number of days is 30 \n";
+//         break;
+//     case 7:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     case 8:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     case 9:
+//         cout << "the number of days is 30 \n";
+//         break;
+//     case 10:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     case 11:
+//         cout << "the number of days is 30 \n";
+//         break;
+//     case 12:
+//         cout << "the number of days is 31 \n";
+//         break;
+//     default:
+//         cout << "the number of days is 30 \n";
+//     }
+//     return 0;
+// }
 
-bool dateType::isLeapYear()
-{
-    unsigned int year;
-    cout << "enter a year to  check :  ";
-    cin >> year;
-    if (year % 4 == 0)
-    {
-        cout << "year is Leap\n";
-    }
-    else
-    {
-        cout << "not leap year\n";
-    }
-    return 0;
-}
-
-int dateType::daysInMonth()
-{
-
-    if (dMonth == 1 || dMonth == 3 || dMonth == 5 || dMonth == 7 || dMonth == 8 || dMonth == 10 || dMonth == 12)
-    {
-        cout << "31\n";
-    }
-    else if (dMonth == 4 || dMonth == 6 || dMonth == 9 || dMonth == 11)
-    {
-        cout << "30\n";
-    }
-    else if (dYear % 4 == 0 || dMonth == 2)
-    {
-        cout << "29\n";
-    }
-    else
-    {
-        cout << "28\n";
-    }
-    return 0;
-}
-
-int dateType::numberOfDaysPassed()
-{
-    switch (dMonth)
-    {
-    case 1:
-        cout << "number of days passed " << 31 + dDay;
-        break;
-    case 2:
-        if (dYear % 4 == 0)
-        {
-            cout << "the number of days passed " << 60 + dDay;
-        }
-        else
-        {
-            cout << "the number of days passed " << 59 + dDay;
-        }
-        break;
-    case 3:
-        cout << "the number of days passed " << 90 + dDay;
-        break;
-    case 4:
-        cout << "the number of days passed " << 120 + dDay;
-        break;
-    case 5:
-        cout << "the number of days passed " << 151 + dDay;
-        break;
-    case 6:
-        cout << "the number of days passed " << 181 + dDay;
-        break;
-    case 7:
-        cout << "the number of days passed " << 212 + dDay;
-        break;
-    case 8:
-        cout << "the number of days passed " << 243 + dDay;
-        break;
-    case 9:
-        cout << "the number of days passed " << 273 + dDay;
-        break;
-    case 10:
-        cout << "the number of days passed " << 304 + dDay;
-        break;
-    case 11:
-        cout << "the number of days passed " << 334 + dDay;
-        break;
-    case 12:
-        cout << "the number of days passed " << 365;
-        break;
-    default:
-        cout << "sorry!\ninvalid\n";
-    }
-    return 0;
-}
-int dateType::numberOfDaysRemaining()
-{
-    unsigned int year = 365, remaining;
-    switch (dMonth)
-    {
-    case 1:
-        cout << "number of days Remaining " << 31 + dDay;
-        break;
-    case 2:
-        if (dYear % 4 == 0)
-        {
-            remaining = year - (60 + dDay);
-            cout << "the number of days Remaining " << year;
-        }
-        else
-        {
-            remaining = year - (59 + dDay);
-            cout << "the number of days Remaining " << remaining;
-        }
-        break;
-    case 3:
-        remaining = year - (90 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 4:
-        remaining = year - (120 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 5:
-        remaining = year - (151 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 6:
-        remaining = year - (181 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 7:
-        remaining = year - (212 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 8:
-        remaining = year - (243 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 9:
-        remaining = year - (273 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 10:
-        remaining = year - (304 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 11:
-        remaining = year - (334 + dDay);
-        cout << "the number of days Remaining " << remaining;
-        break;
-    case 12:
-
-        cout << "the number of days Remaining " << 0;
-        break;
-    default:
-        cout << "sorry!\ninvalid\n";
-    }
-    return 0;
-}
-
-void dateType::printDate() const
-{
-    cout << "date is : " << dDay << "-" << dMonth << "-" << dYear << "\n";
-}
 class extDateType : public dateType
 {
-    string month, year;
+    string month;
+    unsigned int numberOfDays, choice;
 
 public:
-    void setD();
-    void dispD();
+    extDateType() : month("") {}
+    extDateType(unsigned int d, unsigned int m, unsigned int y, string mm, unsigned int year) : month(mm), dateType(d, m, y)
+    {
+        d = 1;
+    }
+    void setDate();
+    void dispM();
 };
-
-void extDateType::setD()
+void extDateType::setDate()
 {
-    cout << "enter the name of month : ";
-    cin >> month;
-    cout << "enter the year : ";
-    cin >> year;
-    cout << "enter the name of day : ";
-}
-void extDateType::dispD()
-{
-    cout << month << " " << year;
-}
-class dayType
-{
-    string day;
-
-public:
-    void setDay();
-    void getday();
-    string firstdayOfMonth();
-    void returnNextDay();
-    void returnPrevDay();
-    int number_of_day();
-};
-
-void dayType::setDay()
-{
-    cout << "enter the name of day : ";
-    cin >> day;
-}
-void dayType::getday()
-{
-    cout << day << "\n";
-}
-string dayType::firstdayOfMonth()
-{
-    return day;
-}
-void dayType::returnNextDay()
-{
-    if (day == "monday")
+    cout << "In which format do you want to print Date 'March 24, 2013' OR '3-34-2013' \n";
+    cout << "1 for 'March 24, 2013'\n2 for '3-34-2013' : ";
+    cin >> choice;
+    if (choice == 1)
     {
-        cout << "tuesday\n";
+        cin.ignore(10, '\n');
+        cout << "enter the name of month : ";
+        cin >> month;
     }
-    else if (day == "tuesday")
+    else if (choice == 2)
     {
-        cout << "wednesday\n";
-    }
-    else if (day == "wednesday")
-    {
-        cout << "Thursday\n";
-    }
-    else if (day == "Thursday")
-    {
-        cout << "friday\n";
-    }
-    else if (day == "friday")
-    {
-        cout << "saturday\n";
-    }
-    else if (day == "saturday")
-    {
-        cout << "sunday\n";
-    }
-    else
-    {
-        cout << "moday\n";
+        dateType::setDate();
     }
 }
-void dayType::returnPrevDay()
+void extDateType::dispM()
 {
     unsigned int year;
-    if (day == "monday")
-    {
-        cout << "sunday \n";
-    }
-    else if (day == "sunday")
-    {
-        cout << "saturday\n";
-    }
-    else if (day == "sunday")
-    {
-        cout << "saturday\n";
-    }
-    else if (day == "saturday")
-    {
-        cout << "friday\n";
-    }
-    else if (day == "friday")
-    {
-        cout << "thursday\n";
-    }
-    else if (day == "thursday")
-    {
-        cout << "wednesday\n";
-    }
-    else if (day == "wednesday")
-    {
-        cout << "tuesday\n";
-    }
-    else
-    {
-        cout << "Monday\n";
-    }
+    year = dateType::getyear();
+    cout << month << " " << year;
 }
 
-class calenderType : public dayType
+class dayType
 {
-    // unsigned int days_in_month;
-    dayType dyType;
-    extDateType extDT;
+    string dayName;
 
 public:
-    void setCalander();
-    void dispCalender();
+    void firstDayOfMonth();
+    string dispFirstDayOfMonth();
 };
-void calenderType::setCalander()
+
+void dayType::firstDayOfMonth()
 {
-    dyType.setDay();
-    extDT.setD();
-    extDT.setMonth();
+    cout << "enter the name of day : ";
+    cin >> dayName;
 }
-void calenderType::dispCalender()
+string dayType::dispFirstDayOfMonth()
 {
-    dyType.number_of_day();
-    int numbers;
-    // cout << "numbers are : " << numbers << "\n";
-    int days;
-    days = extDT.getMonth();
-    string day = dyType.firstdayOfMonth();
-    cout << "SUN  MON  TUE  WED  THU  FRI  SAT\n";
-    for (int k = 0; k < numbers; k++)
+    return dayName;
+}
+
+class calenderType : public extDateType, public dayType
+{
+    extDateType extDType;
+    dayType dType;
+
+public:
+    string first_Day_Of_Month();
+    void disp_frist_day_of_month();
+    void setMonth();
+    void setYear();
+    string getMonth();
+    int getYear();
+    int dayNumber();
+    void printCalender();
+};
+
+string calenderType::first_Day_Of_Month()
+{
+    dType.firstDayOfMonth();
+    return "";
+}
+void calenderType::disp_frist_day_of_month()
+{
+    dType.dispFirstDayOfMonth();
+}
+void calenderType::setYear()
+{
+    extDType.setYear();
+}
+void calenderType::setMonth()
+{
+    extDType.setDate();
+}
+
+string calenderType::getMonth()
+{
+    extDType.dispM();
+    return "";
+}
+int calenderType::getYear()
+{
+    int year;
+    year = extDType.getyear();
+    return 0;
+}
+void calenderType::printCalender()
+{
+    unsigned int daysInMonth, i, j, k = 1;
+    cout << "\n\nenter a number of days in month : ";
+    cin >> daysInMonth;
+    string day = dType.dispFirstDayOfMonth();
+    cout << "  SUN  MON  TUE  WED  THU  FRI  SAT\n";
+    for (i = 0; i < 6; i++)
     {
-        cout << "  ";
-        for (int i = 1; i <= days; i++)
+        if (day == "monday")
         {
-            cout << i << "   ";
-            if (i == 7 || i == 14 || i == 21 || i == 28)
+            k = 2;
+            if (i < 2)
             {
-                cout << "\n";
+                cout << "     ";
             }
+        }
+        else if (day == "tuesday")
+        {
+            k = 3;
+            if (i < 2)
+            {
+                cout << "     ";
+            }
+        }
+        else if (day == "wednesday")
+        {
+            k = 4;
+            if (i < 3)
+            {
+                cout << "     ";
+            }
+        }
+        else if (day == "thursday")
+        {
+            k = 5;
+            if (i < 4)
+            {
+                cout << "     ";
+            }
+        }
+        else if (day == "friday")
+        {
+            k = 6;
+            if (i < 5)
+            {
+                cout << "     ";
+            }
+        }
+        else if (day == "saturday")
+        {
+            k = 7;
+            if (i < 6)
+            {
+                cout << "     ";
+            }
+        }
+        else
+        {
+            cout << "";
         }
     }
 
-    // if (day == "sunday")
-    // {
-    //     for (int i = 0; i < 6; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
-    // else if (day == "monday")
-    // {
-    //     cout << " ";
-    // }
-    // else if (day == "tuesday")
-    // {
-    //     for (int i = 0; i < 8; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
-    // else if (day == "wednesday")
-    // {
-    //     for (int i = 0; i < 11; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
-    // else if (day == "thursday")
-    // {
-    //     for (int i = 0; i < 14; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
-    // else if (day == "friday")
-    // {
-    //     for (int i = 0; i < 26; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
-    // else if (day == "saturday")
-    // {
-    //     for (int i = 0; i < 20; i++)
-    //     {
-    //         cout << " ";
-    //     }
-    // }
+    for (int j = 1; j <= daysInMonth; j++)
+    {
+        cout << j;
+        if (j < 9)
+        {
+            cout << "     ";
+        }
+        else
+        {
+            cout << "     ";
+        }
+        if (k == 7)
+        {
+
+            cout << "\n";
+            k = 0;
+        }
+        k++;
+    }
 }
+
+// void calenderType::printCalender()
+// {
+//     unsigned int numberOfDaysInMonth, no, i, j, k = 1;
+//     cout << "\n\nenter a number of days in month : ";
+//     cin >> no;
+//     string day = dType.dispFirstDayOfMonth();
+//     cout << "SUN  MON  TUE  WED  THU  FRI  SAT\n";
+//     for (i = 1; i <= no; i++)
+//     {
+//         if (day == "monday")
+//         {
+//             k = 2;
+//             if (i < 2)
+//             {
+//                 cout << "   ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else if (day == "tuesday")
+//         {
+//             k = 3;
+//             if (i < 3)
+//             {
+//                 cout << "     ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else if (day == "wednesday")
+//         {
+//             k = 4;
+//             if (k < 4)
+//             {
+//                 cout << "     ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else if (day == "thursday")
+//         {
+//             k = 5;
+//             if (k < 5)
+//             {
+//                 cout << "     ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else if (day == "friday")
+//         {
+//             k = 6;
+//             if (k < 6)
+//             {
+//                 cout << "     ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else if (day == "saturday")
+//         {
+//             k = 7;
+//             if (k < 7)
+//             {
+//                 cout << "     ";
+//             }
+//             else
+//             {
+//                 cout << i << "    ";
+//                 if (k == 7)
+//                 {
+
+//                     cout << "\n";
+//                     k = 0;
+//                 }
+//             }
+//         }
+//         else
+//         {
+//             cout << "";
+//         }
+//         k++;
+//     }
+// }
 
 int main()
 {
     calenderType ct;
-    ct.setCalander();
-    ct.dispCalender();
-
+    ct.first_Day_Of_Month();
+    ct.setMonth();
+    ct.disp_frist_day_of_month();
+    ct.getMonth();
+    ct.getYear();
+    ct.printCalender();
     return 0;
 }
