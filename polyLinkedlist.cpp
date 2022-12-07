@@ -1,13 +1,12 @@
 #include <iostream>
 using namespace std;
-#define MAX 100
 
 class person
 {
+public:
     unsigned int personID, age;
     string name, address;
-
-public:
+    person *next;
     virtual void setInfo();
     virtual void displayInfo();
     virtual void isOutStanding() = 0;
@@ -118,9 +117,9 @@ void professor::isOutStanding()
 int main()
 {
 
-    person *prsn[MAX];
     // student std;
     // professor profssr;
+    person *current = NULL, *prev = NULL, *first = NULL;
     int n = 0, s = 0, t = 0;
     char ch;
 
@@ -138,51 +137,26 @@ int main()
         switch (ch)
         {
         case '1':
-            prsn[n] = new student;
-            prsn[n++]->setInfo();
-            cout << "\n\n";
 
-            break;
+            current->next = NULL;
+            if (first == NULL)
+            {
+                current = prev = first;
+            }
+            else
+            {
+                prev->next = current;
+                prev = current;
+            }
+            cout << "\n\n";
             break;
         case '2':
-            prsn[n] = new professor;
-            prsn[n++]->setInfo();
             cout << "\n\n";
             break;
         case '3':
-            for (int i = 0; i < n; i++)
-            {
-                if (typeid(*prsn[i]) == typeid(student))
-                {
-                    cout << "--------Student Data-------\n";
-                    prsn[i]->displayInfo();
-                    prsn[i]->isOutStanding();
-                    cout << "\n\n";
-                }
-                else
-                {
-                    cout << "------Teacher Data-------\n";
-                    prsn[i]->displayInfo();
-                    prsn[i]->isOutStanding();
-                    cout << "\n\n";
-                }
-            }
             cout << "\n\n";
             break;
         case '4':
-            for (int i = 0; i < n; i++)
-            {
-                if (typeid(*prsn[i]) == typeid(student))
-                {
-                    s++;
-                }
-                else
-                {
-                    t++;
-                }
-            }
-            cout << "Total number of Students are : " << s << "\n";
-            cout << "Total number of Teachers are : " << t << "\n";
             break;
         case '7':
             cout << "the program is terminated\n";
